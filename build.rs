@@ -1,4 +1,4 @@
 fn main() {
-    prost_build::compile_protos(&["protobufs/threading.proto"],
-                                &["protobufs/"]).unwrap();
+    prost_build::compile_protos(&["protobuf/threading.proto"],
+                                &["protobuf/"]).unwrap();
 }
