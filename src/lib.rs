@@ -21,9 +21,10 @@ pub extern "C" fn test_thread(context_ptr: *mut c_void) -> *mut c_void {
     main_socket.send(encoded_msg, 0).unwrap();
     
     loop {
-        let message = main_socket.recv_string(0).unwrap().unwrap();
-        println!("{}", message);
-        if message.eq("stop") {
+        let encoded_msg = main_socket.recv_bytes(0).unwrap();
+        let message = messaging::ClientMsg::decode(&encoded_msg[..]).unwrap();
+        if message.shutdown {
+            println!("shutting down");
             break;
         }
     }
