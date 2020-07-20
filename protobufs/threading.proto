@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package notesy.messaging;
+
+// Messages from the foreground client
+message ClientMsg {
+    bool shutdown = 16;
+}
+
+// Messages from the background server
+message ServerMsg {
+    string test = 16;
+}

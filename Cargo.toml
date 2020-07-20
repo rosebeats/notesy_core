@@ -12,3 +12,8 @@ crate-type = ["cdylib"]
 
 [dependencies]
 zmq = { git = "https://github.com/rosebeats/rust-zmq.git" }
+prost = "0.6"
+prost-types = "0.6"
+
+[build-dependencies]
+prost-build = { version = "0.6" }
